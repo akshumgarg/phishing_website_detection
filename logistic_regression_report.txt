@@ -1,0 +1,172 @@
+======================================================================
+  LOGISTIC REGRESSION PERFORMANCE REPORT
+  Phishing Website Detection — From Scratch Implementation
+======================================================================
+
+A. DATASET SUMMARY
+----------------------------------------
+  Total Samples:     11430
+  Features:          48
+  Legitimate (0):    5715 (50.0%)
+  Phishing   (1):    5715 (50.0%)
+  Training Samples:  9144
+  Testing Samples:   2286
+
+B. CONFUSION MATRIX
+----------------------------------------
+                   Pred Legit   Pred Phish
+  Actual Legit:          1089           66
+  Actual Phish:            67         1064
+
+  TP=1064  TN=1089  FP=66  FN=67
+
+C. PRIMARY PERFORMANCE METRICS
+----------------------------------------
+  Accuracy:                     0.9418 (94.18%)
+  Error Rate:                   0.0582 (5.82%)
+  Precision (Phishing/PPV):      0.9416
+  Recall (Sensitivity/TPR):      0.9408
+  F1-Score (Phishing):           0.9412
+  Specificity (TNR):             0.9429
+  Negative Predictive Val (NPV): 0.9420
+  ROC-AUC Score:                 0.9850
+
+D. ADVANCED PERFORMANCE METRICS
+----------------------------------------
+  Balanced Accuracy:             0.9418
+  Matthews Corr Coeff (MCC):     0.8836
+  Cohen's Kappa:                 0.8836
+  Youden's J Statistic:          0.8836
+  Gini Coefficient:              0.9700
+  Log-Loss (Cross-Entropy):      0.1545
+  Diagnostic Odds Ratio:         262.0299
+  Positive Likelihood Ratio:     16.4633
+  Negative Likelihood Ratio:     0.0628
+
+E. ERROR RATES
+----------------------------------------
+  False Positive Rate (Type I):  0.0571 (5.71%)
+  False Negative Rate (Type II): 0.0592 (5.92%)
+  Prevalence:                    0.4948
+  Detection Rate:                0.4654
+  Detection Prevalence:          0.4943
+
+F. PER-CLASS CLASSIFICATION REPORT
+------------------------------------------------------------
+  Class             Precision      Recall    F1-Score   Support
+  --------------------------------------------------------
+  legitimate           0.9420      0.9429      0.9424      1155
+  phishing             0.9416      0.9408      0.9412      1131
+  --------------------------------------------------------
+  macro avg            0.9418      0.9418      0.9418      2286
+  weighted avg         0.9418      0.9418      0.9418      2286
+
+G. TRAIN vs TEST COMPARISON
+----------------------------------------
+  Train Accuracy: 0.9453  |  Test Accuracy: 0.9418  |  Diff: 0.0035
+  Train ROC-AUC:  0.9858  |  Test ROC-AUC:  0.9850  |  Diff: 0.0008
+
+H. TOP 15 FEATURE IMPORTANCES
+------------------------------------------------------------
+  Rank   Feature                              Weight
+  --------------------------------------------------
+  1      google_index                      +1.321816  (phishing)
+  2      page_rank                         -1.084232  (legitimate)
+  3      phish_hints                       +1.070787  (phishing)
+  4      nb_www                            -0.944355  (legitimate)
+  5      nb_hyperlinks                     -0.783803  (legitimate)
+  6      nb_hyphens                        -0.766791  (legitimate)
+  7      domain_age                        -0.687195  (legitimate)
+  8      nb_qm                             +0.568493  (phishing)
+  9      ratio_digits_host                 +0.552975  (phishing)
+  10     empty_title                       -0.499899  (legitimate)
+  11     web_traffic                       -0.483044  (legitimate)
+  12     longest_words_raw                 +0.433170  (phishing)
+  13     length_hostname                   +0.398776  (phishing)
+  14     shortening_service                +0.377301  (phishing)
+  15     ip                                +0.367862  (phishing)
+
+I. ALL FEATURE WEIGHTS (48 features)
+------------------------------------------------------------
+  1    google_index                      +1.321816
+  2    page_rank                         -1.084232
+  3    phish_hints                       +1.070787
+  4    nb_www                            -0.944355
+  5    nb_hyperlinks                     -0.783803
+  6    nb_hyphens                        -0.766791
+  7    domain_age                        -0.687195
+  8    nb_qm                             +0.568493
+  9    ratio_digits_host                 +0.552975
+  10   empty_title                       -0.499899
+  11   web_traffic                       -0.483044
+  12   longest_words_raw                 +0.433170
+  13   length_hostname                   +0.398776
+  14   shortening_service                +0.377301
+  15   ip                                +0.367862
+  16   domain_in_title                   +0.355118
+  17   https_token                       -0.318367
+  18   dns_record                        +0.314419
+  19   nb_semicolumn                     +0.290555
+  20   nb_at                             +0.287107
+  21   nb_dots                           +0.267314
+  22   avg_word_path                     +0.264649
+  23   safe_anchor                       -0.250878
+  24   nb_slash                          +0.231896
+  25   domain_with_copyright             -0.220940
+  26   longest_word_host                 -0.201217
+  27   tld_in_subdomain                  +0.199568
+  28   ratio_extMedia                    -0.179339
+  29   ratio_extRedirection              -0.169292
+  30   ratio_intHyperlinks               -0.151633
+  31   http_in_path                      +0.145449
+  32   nb_subdomains                     -0.141380
+  33   shortest_word_path                +0.133344
+  34   external_favicon                  +0.127940
+  35   shortest_word_host                -0.126024
+  36   statistical_report                +0.102810
+  37   tld_in_path                       -0.076805
+  38   prefix_suffix                     +0.057776
+  39   whois_registered_domain           -0.057452
+  40   ratio_intMedia                    -0.045823
+  41   nb_extCSS                         -0.042206
+  42   domain_in_brand                   -0.041299
+  43   abnormal_subdomain                +0.041198
+  44   length_url                        +0.038313
+  45   domain_registration_length        +0.033619
+  46   nb_com                            +0.025147
+  47   nb_colon                          -0.019604
+  48   nb_and                            +0.007604
+
+J. TRAINING LOSS HISTORY
+----------------------------------------
+  Initial Loss: 0.693147
+  Final Loss:   0.150662
+  Reduction:    78.26%
+
+  Iteration    1: Loss = 0.693147
+  Iteration  101: Loss = 0.194960
+  Iteration  201: Loss = 0.173054
+  Iteration  301: Loss = 0.164493
+  Iteration  401: Loss = 0.159847
+  Iteration  501: Loss = 0.156910
+  Iteration  601: Loss = 0.154881
+  Iteration  701: Loss = 0.153396
+  Iteration  801: Loss = 0.152262
+  Iteration  901: Loss = 0.151372
+
+K. MODEL PARAMETERS
+----------------------------------------
+  Algorithm:         Logistic Regression (Binary)
+  Optimization:      Gradient Descent
+  Learning Rate:     0.1
+  Iterations:        1000
+  Features Used:     48
+  Bias Term:         0.414063
+  Scaling:           Z-Score Standardization
+  Train/Test Split:  80/20
+  Random Seed:       42
+  Implementation:    From scratch (no external libraries)
+
+======================================================================
+  END OF REPORT
+======================================================================

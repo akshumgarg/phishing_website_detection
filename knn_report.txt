@@ -1,0 +1,82 @@
+======================================================================
+  K-NEAREST NEIGHBORS (KNN) PERFORMANCE REPORT
+  Phishing Website Detection — From Scratch Implementation
+======================================================================
+
+A. DATASET SUMMARY
+----------------------------------------
+  Total Samples:     11430
+  Features:          48
+  Legitimate (0):    5715 (50.0%)
+  Phishing   (1):    5715 (50.0%)
+  Training Samples:  9144
+  Testing Samples:   2286
+
+B. CONFUSION MATRIX
+----------------------------------------
+                   Pred Legit   Pred Phish
+  Actual Legit:          1121           34
+  Actual Phish:            70         1061
+
+  TP=1061  TN=1121  FP=34  FN=70
+
+C. PRIMARY PERFORMANCE METRICS
+----------------------------------------
+  Accuracy:                     0.9545 (95.45%)
+  Error Rate:                   0.0455 (4.55%)
+  Precision (Phishing/PPV):      0.9689
+  Recall (Sensitivity/TPR):      0.9381
+  F1-Score (Phishing):           0.9533
+  Specificity (TNR):             0.9706
+  Negative Predictive Val (NPV): 0.9412
+  ROC-AUC Score:                 0.9840
+
+D. ADVANCED PERFORMANCE METRICS
+----------------------------------------
+  Balanced Accuracy:             0.9543
+  Matthews Corr Coeff (MCC):     0.9094
+  Cohen's Kappa:                 0.9090
+  Youden's J Statistic:          0.9087
+  Gini Coefficient:              0.9680
+  Log-Loss (Cross-Entropy):      0.4210
+  Diagnostic Odds Ratio:         499.7399
+  Positive Likelihood Ratio:     31.8681
+  Negative Likelihood Ratio:     0.0638
+
+E. ERROR RATES
+----------------------------------------
+  False Positive Rate (Type I):  0.0294 (2.94%)
+  False Negative Rate (Type II): 0.0619 (6.19%)
+  Prevalence:                    0.4948
+  Detection Rate:                0.4641
+  Detection Prevalence:          0.4790
+
+F. PER-CLASS CLASSIFICATION REPORT
+------------------------------------------------------------
+  Class             Precision      Recall    F1-Score   Support
+  --------------------------------------------------------
+  legitimate           0.9412      0.9706      0.9557      1155
+  phishing             0.9689      0.9381      0.9533      1131
+  --------------------------------------------------------
+  macro avg            0.9551      0.9543      0.9545      2286
+  weighted avg         0.9549      0.9545      0.9545      2286
+
+G. TRAIN vs TEST COMPARISON (Sampled Train Set)
+----------------------------------------
+  Train Accuracy: 0.9620  |  Test Accuracy: 0.9545  |  Diff: 0.0075
+  Train ROC-AUC:  0.9963  |  Test ROC-AUC:  0.9840  |  Diff: 0.0123
+
+H. MODEL PARAMETERS
+----------------------------------------
+  Algorithm:         K-Nearest Neighbors (KNN)
+  K Neighbors:       5
+  Distance Metric:   Euclidean
+  Features Used:     48
+  Scaling:           Z-Score Standardization
+  Train/Test Split:  80/20
+  Random Seed:       42
+  Implementation:    From scratch (no external libraries)
+
+======================================================================
+  END OF REPORT
+======================================================================

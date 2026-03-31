@@ -1,0 +1,182 @@
+======================================================================
+  SVM (SUPPORT VECTOR MACHINE) PERFORMANCE REPORT
+  Phishing Website Detection — From Scratch Implementation
+======================================================================
+
+A. DATASET SUMMARY
+----------------------------------------
+  Total Samples:     11430
+  Features:          48
+  Legitimate:        5715 (50.0%)
+  Phishing:          5715 (50.0%)
+  Training Samples:  9144
+  Testing Samples:   2286
+
+B. CONFUSION MATRIX
+----------------------------------------
+                   Pred Legit   Pred Phish
+  Actual Legit:          1089           66
+  Actual Phish:            67         1064
+
+  TP=1064  TN=1089  FP=66  FN=67
+
+C. PRIMARY PERFORMANCE METRICS
+----------------------------------------
+  Accuracy:                     0.9418 (94.18%)
+  Error Rate:                   0.0582 (5.82%)
+  Precision (Phishing/PPV):      0.9416
+  Recall (Sensitivity/TPR):      0.9408
+  F1-Score (Phishing):           0.9412
+  Specificity (TNR):             0.9429
+  Negative Predictive Val (NPV): 0.9420
+  ROC-AUC Score:                 0.9851
+
+D. ADVANCED PERFORMANCE METRICS
+----------------------------------------
+  Balanced Accuracy:             0.9418
+  Matthews Corr Coeff (MCC):     0.8836
+  Cohen's Kappa:                 0.8836
+  Youden's J Statistic:          0.8836
+  Gini Coefficient:              0.9701
+  Hinge Loss (Test Set):         0.1493
+  Diagnostic Odds Ratio:         262.0299
+  Positive Likelihood Ratio:     16.4633
+  Negative Likelihood Ratio:     0.0628
+
+E. ERROR RATES
+----------------------------------------
+  False Positive Rate (Type I):  0.0571 (5.71%)
+  False Negative Rate (Type II): 0.0592 (5.92%)
+  Prevalence:                    0.4948
+  Detection Rate:                0.4654
+  Detection Prevalence:          0.4943
+
+F. PER-CLASS CLASSIFICATION REPORT
+------------------------------------------------------------
+  Class             Precision      Recall    F1-Score   Support
+  --------------------------------------------------------
+  legitimate           0.9420      0.9429      0.9424      1155
+  phishing             0.9416      0.9408      0.9412      1131
+  --------------------------------------------------------
+  macro avg            0.9418      0.9418      0.9418      2286
+  weighted avg         0.9418      0.9418      0.9418      2286
+
+G. TRAIN vs TEST COMPARISON
+----------------------------------------
+  Train Accuracy: 0.9436  |  Test Accuracy: 0.9418  |  Diff: 0.0017
+  Train ROC-AUC:  0.9855  |  Test ROC-AUC:  0.9851  |  Diff: 0.0004
+
+H. SVM MARGIN ANALYSIS
+----------------------------------------
+  Mean Margin:              2.0369
+  Min Margin:               -3.7805
+  Max Margin:               16.2867
+  Samples within margin:    405
+  % within margin:          17.72%
+
+I. TOP 15 FEATURE IMPORTANCES
+------------------------------------------------------------
+  Rank   Feature                              Weight
+  --------------------------------------------------
+  1      google_index                      +0.674755  (phishing)
+  2      phish_hints                       +0.519375  (phishing)
+  3      page_rank                         -0.517545  (legitimate)
+  4      nb_www                            -0.474221  (legitimate)
+  5      nb_hyperlinks                     -0.391951  (legitimate)
+  6      nb_hyphens                        -0.349927  (legitimate)
+  7      domain_age                        -0.307276  (legitimate)
+  8      longest_words_raw                 +0.304873  (phishing)
+  9      nb_qm                             +0.267803  (phishing)
+  10     length_hostname                   +0.220597  (phishing)
+  11     web_traffic                       -0.217517  (legitimate)
+  12     ratio_digits_host                 +0.216218  (phishing)
+  13     empty_title                       -0.201529  (legitimate)
+  14     nb_semicolumn                     +0.174300  (phishing)
+  15     ip                                +0.170295  (phishing)
+
+J. ALL FEATURE WEIGHTS (48 features)
+------------------------------------------------------------
+  1    google_index                      +0.674755
+  2    phish_hints                       +0.519375
+  3    page_rank                         -0.517545
+  4    nb_www                            -0.474221
+  5    nb_hyperlinks                     -0.391951
+  6    nb_hyphens                        -0.349927
+  7    domain_age                        -0.307276
+  8    longest_words_raw                 +0.304873
+  9    nb_qm                             +0.267803
+  10   length_hostname                   +0.220597
+  11   web_traffic                       -0.217517
+  12   ratio_digits_host                 +0.216218
+  13   empty_title                       -0.201529
+  14   nb_semicolumn                     +0.174300
+  15   ip                                +0.170295
+  16   shortening_service                +0.167619
+  17   domain_in_title                   +0.144643
+  18   https_token                       -0.138422
+  19   longest_word_host                 -0.134413
+  20   nb_dots                           +0.133152
+  21   domain_with_copyright             -0.130682
+  22   dns_record                        +0.128132
+  23   nb_at                             +0.125740
+  24   safe_anchor                       -0.125027
+  25   avg_word_path                     +0.116872
+  26   nb_slash                          +0.103357
+  27   http_in_path                      +0.092416
+  28   shortest_word_host                -0.077364
+  29   nb_subdomains                     -0.076343
+  30   tld_in_subdomain                  +0.065834
+  31   shortest_word_path                +0.061250
+  32   ratio_extMedia                    -0.061193
+  33   tld_in_path                       -0.053257
+  34   ratio_extRedirection              -0.047995
+  35   ratio_intHyperlinks               -0.039905
+  36   external_favicon                  +0.038844
+  37   whois_registered_domain           -0.036637
+  38   ratio_intMedia                    -0.034433
+  39   statistical_report                +0.033776
+  40   abnormal_subdomain                +0.033529
+  41   domain_in_brand                   -0.031066
+  42   nb_extCSS                         -0.030369
+  43   nb_colon                          +0.017556
+  44   nb_com                            -0.015825
+  45   length_url                        +0.012373
+  46   prefix_suffix                     +0.009835
+  47   domain_registration_length        +0.006301
+  48   nb_and                            -0.005964
+
+K. TRAINING LOSS HISTORY
+----------------------------------------
+  Initial Loss: 0.219313
+  Final Loss:   0.172395
+
+  Epoch    1: Loss = 0.219313
+  Epoch  101: Loss = 0.172646
+  Epoch  201: Loss = 0.173273
+  Epoch  301: Loss = 0.173310
+  Epoch  401: Loss = 0.172709
+  Epoch  501: Loss = 0.172927
+  Epoch  601: Loss = 0.172638
+  Epoch  701: Loss = 0.172970
+  Epoch  801: Loss = 0.172851
+  Epoch  901: Loss = 0.172732
+
+L. MODEL PARAMETERS
+----------------------------------------
+  Algorithm:         Linear SVM
+  Kernel:            Linear
+  Loss Function:     Hinge Loss + L2 Regularization
+  Optimization:      SGD
+  Learning Rate:     0.001
+  Lambda (reg):      0.01
+  Epochs:            1000
+  Features Used:     48
+  Bias Term:         0.212000
+  Scaling:           Z-Score Standardization
+  Train/Test Split:  80/20
+  Random Seed:       42
+  Implementation:    From scratch (no external libraries)
+
+======================================================================
+  END OF REPORT
+======================================================================
